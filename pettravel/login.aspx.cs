@@ -24,7 +24,7 @@ namespace pettravel
         private static string HMACSHA256(string message, string key) // key = Keys
         {
             //Hash256加密段
-            var encoding = new System.Text.UTF8Encoding(); 
+            var encoding = new System.Text.UTF8Encoding();
             byte[] keyByte = encoding.GetBytes(key);
             byte[] messageBytes = encoding.GetBytes(message);
             using (var hmacSHA256 = new HMACSHA256(keyByte))
