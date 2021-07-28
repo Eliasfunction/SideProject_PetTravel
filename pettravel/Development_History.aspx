@@ -27,7 +27,75 @@
         <link rel="stylesheet" href="assets/css/nice-select.css">
         <link rel="stylesheet" href="assets/css/tagsinput.css">
         <link rel="stylesheet" href="assets/css/style.css">
+
+        <style>
+.f1{float:left;margin-left:5px;margin-right:5px;width:calc(5% - 10px)}
+.f2{float:left;margin-left:5px;margin-right:5px;width:calc(10% - 10px)}
+.f3{float:left;margin-left:5px;margin-right:5px;width:calc(15% - 10px)}
+.f4{float:left;margin-left:5px;margin-right:5px;width:calc(20% - 10px)}
+.f5{float:left;margin-left:5px;margin-right:5px;width:calc(25% - 10px)}
+.f6{float:left;margin-left:5px;margin-right:5px;width:calc(30% - 10px)}
+.f7{float:left;margin-left:5px;margin-right:5px;width:calc(35% - 10px)}
+.f8{float:left;margin-left:5px;margin-right:5px;width:calc(40% - 10px)}
+.f9{float:left;margin-left:5px;margin-right:5px;width:calc(45% - 10px)}
+.f10{float:left;margin-left:5px;margin-right:5px;width:calc(50% - 10px)}
+.f11{float:left;margin-left:5px;margin-right:5px;width:calc(55% - 10px)}
+.f12{float:left;margin-left:5px;margin-right:5px;width:calc(60% - 10px)}
+.f13{float:left;margin-left:5px;margin-right:5px;width:calc(65% - 10px)}
+.f14{float:left;margin-left:5px;margin-right:5px;width:calc(70% - 10px)}
+.f15{float:left;margin-left:5px;margin-right:5px;width:calc(75% - 10px)}
+.f16{float:left;margin-left:5px;margin-right:5px;width:calc(80% - 10px)}
+.f17{float:left;margin-left:5px;margin-right:5px;width:calc(85% - 10px)}
+.f18{float:left;margin-left:5px;margin-right:5px;width:calc(90% - 10px)}
+.f19{float:left;margin-left:5px;margin-right:5px;width:calc(95% - 10px)}
+.f20{float:left;margin-left:5px;margin-right:5px;width:calc(100% - 10px)}
+.w1{float:left;width:5%}
+.w2{float:left;width:10%}
+.w3{float:left;width:15%}
+.w4{float:left;width:20%}
+.w5{float:left;width:25%}
+.w6{float:left;width:30%}
+.w7{float:left;width:35%}
+.w8{float:left;width:40%}
+.w9{float:left;width:45%}
+.w10{float:left;width:50%}
+.w11{float:left;width:55%}
+.w12{float:left;width:60%}
+.w13{float:left;width:65%}
+.w14{float:left;width:70%}
+.w15{float:left;width:75%}
+.w16{float:left;width:80%}
+.w17{float:left;width:85%}
+.w18{float:left;width:90%}
+.w19{float:left;width:95%}
+.w20{width:100%;overflow:auto}
+.l1{margin-left:calc(5% + 5px);margin-right:5px}
+.l2{margin-left:calc(10% + 5px);margin-right:5px}
+.l3{margin-left:calc(15% + 5px);margin-right:5px}
+.l4{margin-left:calc(20% + 5px);margin-right:5px}
+.l5{margin-left:calc(25% + 5px);margin-right:5px}
+.l6{margin-left:calc(30% + 5px);margin-right:5px}
+.l7{margin-left:calc(35% + 5px);margin-right:5px}
+.l8{margin-left:calc(40% + 5px);margin-right:5px}
+.l9{margin-left:calc(45% + 5px);margin-right:5px}
+.l10{margin-left:calc(50% + 5px);margin-right:5px}
+.l11{margin-left:calc(55% + 5px);margin-right:5px}
+.l12{margin-left:calc(60% + 5px);margin-right:5px}
+.l13{margin-left:calc(65% + 5px);margin-right:5px}
+.l14{margin-left:calc(70% + 5px);margin-right:5px}
+.l15{margin-left:calc(75% + 5px);margin-right:5px}
+.l16{margin-left:calc(80 + 5px);margin-right:5px}
+.l17{margin-left:calc(85% + 5px);margin-right:5px}
+.l18{margin-left:calc(90% + 5px);margin-right:5px}
+.l19{margin-left:calc(95% + 5px);margin-right:5px}
+
+            .op {
+                opacity: 0.60;
+            }
+</style>
     </head>
+
+                
 
     <body>
         <form id="form1" runat="server">
@@ -65,11 +133,11 @@
                                         <ul id="navigation">
                                             <li><a href="index.aspx">首頁</a></li>
                                             <li><a href="listing.aspx">探索</a></li>
-                                            <li><a href="#">行程</a>
+                                            <!--<li><a href="#">行程</a>
                                                 <ul class="submenu">
                                                     <li><a href="elements.aspx">行程表</a></li>
                                                 </ul>
-                                            </li>
+                                            </li>-->
                                             <li>
                                                 <asp:LinkButton ID="PersonalDataLB" runat="server"
                                                     OnClick="PersonalDataLB_Click">帳號管理</asp:LinkButton>
@@ -97,7 +165,7 @@
                 <!--? Home Hero Area Start-->
                 <div class="hero-area slider-bg5 hero-overly ">
                     <div class="slider-height d-flex align-items-center ">
-                        <div class="container">
+                        <div class="op" style="background-color:white">
                                 <!-- form -->
                             <div class="form-tittle mb-20 col-xl-5 col-lg-6">
                                 <h1>構想</h1>

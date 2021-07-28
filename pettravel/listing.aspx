@@ -53,7 +53,7 @@
                         </div>
                         <!-- logo -->
                         <div class="logo" >
-                            <asp:ImageButton ID="ImageButton1" runat="server" OnClick="ImageButton1_Click" ImageUrl="~/pic/logo.jpg" Height="130px" Width="130px" />
+                            <asp:ImageButton ID="ImageButton1" runat="server" OnClick="ImageButton1_Click" ImageUrl="~/pic/logo.jpg" Height="80px" Width="130px" />
                         </div>
                         <!-- Main-menu -->
                         <div class="main-menu f-right d-none d-lg-block">
@@ -61,17 +61,17 @@
                                 <ul id="navigation">                                                                                                                                     
                                     <li><a href="index.aspx">首頁</a></li>
                                     <li><a href="listing.aspx">探索</a></li>
-                                    <li><a href="elements.aspx">行程</a>
+                                    <!--<li><a href="#">行程</a>
                                         <ul class="submenu">
-                                            <!--
+                                            
                                             <li><a href="blog.aspx">收藏店家</a></li>
                                             <li><a href="blog_details.aspx">店家資訊</a></li>
                                             <li><a href="elements.aspx">簡介</a></li>
                                             <li><a href="contact.aspx">查看地圖</a></li>
-                                            -->
+                                            
                                             <li><a href="elements.aspx">行程表</a></li>
                                         </ul>
-                                    </li>
+                                    </li>-->
                                     <li>
                                         <asp:LinkButton ID="PersonalDataLB" runat="server" OnClick="PersonalDataLB_Click">帳號管理</asp:LinkButton>
                                         <ul class="submenu">
@@ -125,7 +125,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="small-section-tittle2 mb-45">
-                                    <h4 style="font-size:large">條件篩選</h4>
+                                    <h4>條件篩選</h4>
                                 </div>
                             </div>
                         </div>
@@ -137,10 +137,8 @@
                                 <div class="select-job-items2">
                                     <asp:DropDownList id="Ddlcityselect" runat="server" CssClass="nice-select">
                                         <asp:listitem Selected="True" value="none">選擇縣市</asp:listitem>
-                                        <asp:listitem value="台北">台北</asp:listitem>
                                         <asp:listitem value="台中">台中</asp:listitem>
-                                        <asp:ListItem value="高雄">高雄</asp:ListItem>
-                                        <asp:listitem value="台東">台東</asp:listitem>
+                                        <asp:ListItem value="高雄">高雄</asp:ListItem>                                        <asp:listitem value="台東">台東</asp:listitem>
                                     </asp:DropDownList>
                                         <!--asp:listitem value="">備用</asp:listitem-->
                                 </div>
@@ -570,7 +568,7 @@
                         </div>
                         <div class="subscribe-now">
                             <input type="text" placeholder="告訴我們您的建議">
-                            <button class="submit-btn" href="#">提交</button>
+                            <button class="submit-btn" href="#" class="submit-btn ">提交</button>
                         </div>
                     </div>
                 </div>
@@ -756,7 +754,7 @@
                                     <div class="col-12">
                                         <div class="input_wrap">
                                             <label for="#">Description</label>
-                                            <textarea name="amenity-name" placeholder="Enter amenity name"></textarea>
+                                            <textarea name="amenity-name" id="#" placeholder="Enter amenity name"></textarea>
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -1405,5 +1403,6 @@
     <!-- Jquery Plugins, main Jquery -->	
     <script src="./assets/js/plugins.js"></script>
     <script src="./assets/js/main.js"></script>
+    </form>
 </body>
 </html>

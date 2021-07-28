@@ -233,8 +233,55 @@
     <Content Include="assets\img\icon\住宿-icon.png" />
     <Content Include="assets\img\icon\景點-icon.png" />
     <Content Include="assets\img\icon\餐飲-icon.png" />
+    <Content Include="assets\img\info\Giocoso pasta cafe.jpg" />
+    <Content Include="assets\img\info\MAOMAOLEE.jpg" />
+    <Content Include="assets\img\info\NikuNiku肉肉燒肉.jpg" />
+    <Content Include="assets\img\info\九份老街.jpg" />
+    <Content Include="assets\img\info\六堆客家文化園區.jpg" />
+    <Content Include="assets\img\info\凱荳.jpg" />
+    <Content Include="assets\img\info\十鼓仁糖文創園區.jpg" />
+    <Content Include="assets\img\info\原住民文化園區.jpg" />
+    <Content Include="assets\img\info\台北101商圈.jpg" />
+    <Content Include="assets\img\info\塭仔底濕地公園.jpg" />
+    <Content Include="assets\img\info\士林夜市.jpg" />
+    <Content Include="assets\img\info\大坪頂景觀餐廳.jpg" />
+    <Content Include="assets\img\info\大坪頂熱帶植物園.jpg" />
+    <Content Include="assets\img\info\大安森林公園.jpg" />
+    <Content Include="assets\img\info\子村庄園.jpg" />
+    <Content Include="assets\img\info\審計新村.jpg" />
+    <Content Include="assets\img\info\居高山地風味餐.jpg" />
+    <Content Include="assets\img\info\山上花園水道博物館.jpg" />
+    <Content Include="assets\img\info\平溪十分老街.jpg" />
+    <Content Include="assets\img\info\彩虹眷村.jpg" />
+    <Content Include="assets\img\info\怠宿.jpg" />
+    <Content Include="assets\img\info\愛薇餐酒館.jpg" />
+    <Content Include="assets\img\info\新光路公園.jpg" />
+    <Content Include="assets\img\info\旗山老街.jpg" />
+    <Content Include="assets\img\info\旗津.jpg" />
+    <Content Include="assets\img\info\明高溫泉養生會館.jpg" />
+    <Content Include="assets\img\info\春三朝午.jpg" />
+    <Content Include="assets\img\info\普濟寺.jpg" />
+    <Content Include="assets\img\info\柴飽早午餐.jpg" />
+    <Content Include="assets\img\info\森呼吸.jpg" />
+    <Content Include="assets\img\info\汪事屋.jpg" />
+    <Content Include="assets\img\info\汪腳雨都.jpg" />
+    <Content Include="assets\img\info\淨園農場.jpg" />
+    <Content Include="assets\img\info\漁光島月牙灣.jpg" />
+    <Content Include="assets\img\info\漫漫弄.jpg" />
+    <Content Include="assets\img\info\瑞豐夜市.jpg" />
+    <Content Include="assets\img\info\紅毛港文化園區.jpg" />
+    <Content Include="assets\img\info\老塘湖藝術村.jpg" />
+    <Content Include="assets\img\info\草悟道.jpg" />
+    <Content Include="assets\img\info\葉子宿.jpg" />
+    <Content Include="assets\img\info\蓮池潭.jpg" />
     <Content Include="assets\img\info\西子灣.jpg" />
+    <Content Include="assets\img\info\覺醒幸福鍋物.jpg" />
+    <Content Include="assets\img\info\賀喔文旅.jpg" />
+    <Content Include="assets\img\info\金普頓大安酒店.jpg" />
+    <Content Include="assets\img\info\項圈工場.jpg" />
     <Content Include="assets\img\info\駁二.jpg" />
+    <Content Include="assets\img\info\高美濕地.jpg" />
+    <Content Include="assets\img\info\麗寶Outlet.jpg" />
     <Content Include="assets\img\logo\loder.png" />
     <Content Include="assets\img\logo\logo.png" />
     <Content Include="assets\img\logo\logo2_footer.png" />
@@ -695,14 +742,10 @@
   </Target>
   <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
   <PropertyGroup>
-    <PreBuildEvent>
-    </PreBuildEvent>
-  </PropertyGroup>
-  <PropertyGroup>
     <PostBuildEvent>
-      <Target Name="CopyRoslynFiles" AfterTargets="AfterBuild" Condition="!$(Disable_CopyWebApplication) And '$(OutDir)' != '$(OutputPath)'" xmlns="">
+      <Target Name="CopyRoslynFiles" AfterTargets="AfterBuild" Condition="!$(Disable_CopyWebApplication) And '$(OutDir)' != '$(OutputPath)'">
     <ItemGroup>
-      <RoslynFiles Include="$(CscToolPath)\*" />
+    <RoslynFiles Include="$(CscToolPath)\*" />
     </ItemGroup>
     <MakeDir Directories="$(WebProjectOutputDir)\bin\roslyn" />
     <Copy SourceFiles="@(RoslynFiles)" DestinationFolder="$(WebProjectOutputDir)\bin\roslyn" SkipUnchangedFiles="true" Retries="$(CopyRetryCount)" RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)" />

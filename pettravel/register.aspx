@@ -144,7 +144,7 @@ label{
                             </div>
                                 <div class="w14 g-recaptcha " data-sitekey="6Lf1lqsbAAAAAEe2ptOrw7EriKV8KiotTzpAgb-T" ></div>
                                 <div class="register-footer w6">
-                                <asp:Button ID="reg"  runat="server" Text="註冊" BackColor="#333333" Font-Bold="False" Font-Names="微軟正黑體" Font-Size="Large" ForeColor="White" Height="60px" Width="100%" OnClick="reg_Click" />
+                                <asp:Button ID="reg"  runat="server" Text="註冊" BackColor="#ec3472" Font-Bold="False" Font-Names="微軟正黑體" Font-Size="Large" ForeColor="White" Height="60px" Width="100%" OnClick="reg_Click" />
                                 </div>
                                 <p class="w20"></p>
                                 <p class="w20"></p>

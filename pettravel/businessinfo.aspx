@@ -172,7 +172,7 @@ label{
                                     <label class="w4">店家介紹</label>
                                     <asp:TextBox ID="sMassage" runat="server"  Rows="3" TextMode="MultiLine" class="w16 form-control stl"></asp:TextBox>
                                     
-                                    <label class="w20">店家照片</label>
+                                    <label class="w20">店家照片(每張照片不得超過4mb)</label>
                                     <input id = "sidpath"  type = "hidden"  value = "null"  runat = server ClientIDMode = 'Static' >
                                     <input id = "picpath1"  type = "hidden"  value = ""  runat = server ClientIDMode = 'Static' >
                                     <input id = "picpath2"  type = "hidden"  value = ""  runat = server ClientIDMode = 'Static' >

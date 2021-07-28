@@ -92,10 +92,10 @@ namespace pettravel
                     SqlDataReader SqlData = city.ExecuteReader();
                     if (SqlData.HasRows)
                     {
-
-                        do
+                        while (SqlData.Read())
                         {
-                            while (SqlData.Read() && SqlData["iday"].ToString() == "第一天")
+
+                            if (SqlData["iday"].ToString() == "第一天")
                             {
                                 if (SqlData["iimage"].ToString() != "")
                                 {
@@ -111,7 +111,7 @@ namespace pettravel
                                 id.Add((int)(SqlData["iid"]));
                             }
 
-                            while (SqlData.Read() && SqlData["iday"].ToString() == "第二天")
+                            if (SqlData["iday"].ToString() == "第二天")
                             {
                                 if (SqlData["iimage"].ToString() != "")
                                 {
@@ -126,7 +126,7 @@ namespace pettravel
                                 sdo.Add(SqlData["ido"].ToString());
                                 id.Add((int)(SqlData["iid"]));
                             }
-                            while (SqlData.Read() && SqlData["iday"].ToString() == "第三天")
+                            if (SqlData["iday"].ToString() == "第三天")
                             {
                                 if (SqlData["iimage"].ToString() != "")
                                 {
@@ -141,8 +141,9 @@ namespace pettravel
                                 tdo.Add(SqlData["ido"].ToString());
                                 id.Add((int)(SqlData["iid"]));
                             }
+
                         }
-                        while (SqlData.NextResult());
+                        
                         try
                         {
                             

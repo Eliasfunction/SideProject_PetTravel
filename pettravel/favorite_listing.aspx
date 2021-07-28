@@ -66,11 +66,11 @@
                                         <ul id="navigation">
                                             <li><a href="index.aspx">首頁</a></li>
                                             <li><a href="listing.aspx">探索</a></li>
-                                            <li><a href="#">行程</a>
+                                            <!--<li><a href="#">行程</a>
                                                 <ul class="submenu">
                                                     <li><a href="elements.aspx">行程表</a></li>
                                                 </ul>
-                                            </li>
+                                            </li>-->
                                             <li>
                                                 <asp:LinkButton ID="PersonalDataLB" runat="server"
                                                     OnClick="PersonalDataLB_Click">帳號管理</asp:LinkButton>
@@ -545,68 +545,7 @@
                 </div>
                 <!-- listing-area Area End -->
 
-                <!--? services area start -->
-                <section class="services-section pb-padding">
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-xl-10 col-lg-10 col-md-7 ">
-                                <!-- Section Tittle -->
-                                <div class="section-tittle  text-center mb-60">
-                                    <h2>讓我們幫助您</h2>
-                                    <p>尋找更多</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="services-active">
-                            <div class="single-cat mb-30">
-                                <div class="cat-icon">
-                                    <img src="assets/img/gallery/services1.png" alt="">
-                                </div>
-                                <div class="cat-cap text-center">
-                                    <h5><a href="services.html">旅館</a></h5>
-                                    <p>20 筆資料</p>
-                                </div>
-                            </div>
-                            <div class="single-cat mb-30">
-                                <div class="cat-icon">
-                                    <img src="assets/img/gallery/services2.png" alt="">
-                                </div>
-                                <div class="cat-cap text-center">
-                                    <h5><a href="services.html">餐廳</a></h5>
-                                    <p>20 筆資料</p>
-                                </div>
-                            </div>
-                            <div class="single-cat mb-30">
-                                <div class="cat-icon">
-                                    <img src="assets/img/gallery/services3.png" alt="">
-                                </div>
-                                <div class="cat-cap text-center">
-                                    <h5><a href="services.html">景點</a></h5>
-                                    <p>20 資料</p>
-                                </div>
-                            </div>
-                            <div class="single-cat mb-30">
-                                <div class="cat-icon">
-                                    <img src="assets/img/gallery/services4.png" alt="">
-                                </div>
-                                <div class="cat-cap text-center">
-                                    <h5><a href="services.html">Shopping Mall</a></h5>
-                                    <p>20 Listing</p>
-                                </div>
-                            </div>
-                            <div class="single-cat mb-30">
-                                <div class="cat-icon">
-                                    <img src="assets/img/gallery/services2.png" alt="">
-                                </div>
-                                <div class="cat-cap text-center">
-                                    <h5><a href="services.html">Hotel</a></h5>
-                                    <p>20 Listing</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <!-- Services End -->
+                
                 <!-- subscribe Area Start-->
                 <!--? subscribe Area Start-->
                 <div class="subscribe-area section-bg2" data-background="assets/img/gallery/section_bg02.png">
@@ -627,51 +566,7 @@
                     </div>
                 </div>
                 <!-- subscribe Area End-->
-                <!--? Popular Locations Start 01-->
-        <div class="popular-location  section-padding40">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <!-- Section Tittle -->
-                        <div class="section-tittle text-center mb-50">
-                            <h2>推薦地點</h2>
-                            <p>查看最熱門的景點</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-12">
-                        <div class="single-location mb-30">
-                            <div class="location-img">
-                                <img src="assets/img/gallery/home-blog1.png" alt="">
-                            </div>
-                            <div class="location-details">
-                                <a href="#" class="location-btn">推薦</a>
-                                <ul>
-                                    <li>好評指數 - - - - -</li>
-                                </ul>
-                                <p><a href="blog_details.html">某某某景點名稱</a></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-12">
-                        <div class="single-location mb-30">
-                            <div class="location-img">
-                                <img src="assets/img/gallery/home-blog2.png" alt="">
-                            </div>
-                            <div class="location-details">
-                                <a href="#" class="location-btn">推薦</a>
-                                <ul>
-                                    <li>好評指數 - - - - -</li>
-                                </ul>
-                                <p><a href="blog_details.html">某某某景點名稱</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Popular Locations End -->
+                
             </main>
         </form>
         <footer>

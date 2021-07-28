@@ -66,17 +66,17 @@
                                         <ul id="navigation">
                                             <li><a href="index.aspx">首頁</a></li>
                                             <li><a href="listing.aspx">探索</a></li>
-                                            <li><a href="elements.aspx">行程</a>
+                                            <!--<li><a href="elements.aspx">行程</a>
                                                 <ul class="submenu">
-                                                    <!--
+                                                    
                                             <li><a href="blog.aspx">收藏店家</a></li>
                                             <li><a href="blog_details.aspx">店家資訊</a></li>
                                             <li><a href="elements.aspx">簡介</a></li>
                                             <li><a href="contact.aspx">查看地圖</a></li>
-                                            -->
+                                            
                                                     <li><a href="elements.aspx">行程表</a></li>
                                                 </ul>
-                                            </li>
+                                            </li>-->
                                             <li>
                                                 <asp:LinkButton ID="PersonalDataLB" runat="server"
                                                     OnClick="PersonalDataLB_Click">帳號管理</asp:LinkButton>
@@ -548,40 +548,24 @@
                             </div>
                             <script>
                                 function initMap() {
-                                    var uluru = {
-                                        lat: 22.635056424390722,
-                                        lng: 120.3019530814749
+                                    var position = {
+                                        lat: 22.634960688920646,
+                                        lng: 120.30198518650802
                                     };
-                                    var grayStyles = [{
-                                        featureType: "all",
-                                        stylers: [{
-                                            saturation: -90
-                                        },
-                                        {
-                                            lightness: 50
-                                        }
-                                        ]
-                                    },
-                                    {
-                                        elementType: 'labels.text.fill',
-                                        stylers: [{
-                                            color: '#ccdee9'
-                                        }]
-                                    }
-                                    ];
                                     var map = new google.maps.Map(document.getElementById('map'), {
-                                        center: {
-                                            lat: 22.635056424390722,
-                                            lng: 120.3019530814749
-                                        },
                                         zoom: 9,
-                                        styles: grayStyles,
-                                        scrollwheel: false
+                                        mapId: '3a0f4d71e6baf7f7',
+                                        center: position
+                                    });
+                                    var marker = new google.maps.Marker({
+                                        position: position,
+                                        map: map
                                     });
                                 }
+                                
                             </script>
                             <script
-                                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpfS1oRGreGSBU5HHjMmQ3o5NLw7VdJ6I&amp;callback=initMap">
+                                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDscnQQg2AuNRIRstkqDv-uL-TxQ9Sh8LU&amp;callback=initMap">
                                 </script>
 
                         </div>
@@ -622,22 +606,22 @@
                                 <div class="media contact-info">
                                     <span class="contact-info__icon"><i class="ti-home"></i></span>
                                     <div class="media-body">
-                                        <h3>台灣</h3>
-                                        <p>高雄市</p>
+                                        <h3>地址:</h3>
+                                        <p>80049台灣高雄市新興區中山一路243號</p>
                                     </div>
                                 </div>
                                 <div class="media contact-info">
                                     <span class="contact-info__icon"><i class="ti-tablet"></i></span>
                                     <div class="media-body">
-                                        <h3>0987654321</h3>
-                                        <p>Mon to Fri 9am to 6pm</p>
+                                        <h3>電話:<br />0987654321</h3>
+                                        <p>營業時間:<br />星期一至星期五 9am 到 6pm</p>
                                     </div>
                                 </div>
                                 <div class="media contact-info">
                                     <span class="contact-info__icon"><i class="ti-email"></i></span>
                                     <div class="media-body">
-                                        <h3>sushengyin1989@gmail.com</h3>
-                                        <p>Send us your query anytime!</p>
+                                        <h3>信箱:<br />sushengyin1989@gmail.com</h3>
+                                        <p>歡迎隨時寄信給我們!!</p>
                                     </div>
                                 </div>
                             </div>

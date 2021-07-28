@@ -45,9 +45,14 @@ namespace pettravel
                 // pic/StoreInfo/位置 新建一個SID資料夾 /若是修改資料 則先抹除sid資料夾新建一個
                 if (i == 1)
                 {
-                    if (!Deleteold)
-                        Directory.Delete(Server.MapPath(Storage), true);
-                    Directory.CreateDirectory(Server.MapPath(Storagepath));
+                    try
+                    {
+                        if (!Deleteold)
+                            Directory.Delete(Server.MapPath(Storage), true);
+                        Directory.CreateDirectory(Server.MapPath(Storage));
+                    }
+                    catch { }
+                    
                 }
                 HttpPostedFile StoreImg = Request.Files[PN];
                 string FileExtension = Path.GetExtension(Request.Files[PN].FileName);
@@ -89,7 +94,7 @@ namespace pettravel
         //*** Method end
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Session["email"] = "Eliastest@gmail.com";
+            //Session["email"] = "sushengyinsu@yahoo.com.tw";
             if (Session["email"] == null)
                 PageMsg("請先登入", "login");
             try
@@ -114,40 +119,33 @@ namespace pettravel
                     Mangercommand.Parameters.Add("@sid", SqlDbType.Int).Value = sid;
                     SqlPTC.Open();
                     SqlDataReader SqlData2 = Mangercommand.ExecuteReader();
-                    if (SqlData2.HasRows)//資料列是否有值
+                    if (SqlData2.HasRows && SqlData2.Read() && SqlData2["Mid"].ToString() == mid)//資料列是否有值
                     {
-                        if (SqlData2.Read())//讀取值
+                        if (!IsPostBack)
                         {
-                            if (SqlData2["Mid"].ToString() == mid)
-                            {
-                                if (!IsPostBack)
-                                {
-                                    Spot.SelectedValue = SqlData2["stype"].ToString();
-                                }
-                                StoreTB.Text = SqlData2["sname"].ToString();
-                                PhoneTB.Text = SqlData2["sphone"].ToString();
-                                oldAddressTB.Text= SqlData2["sregion"].ToString() + " " + SqlData2["saddress"].ToString();
-                                WebsiteTB.Text = SqlData2["swebsite"].ToString();
-                                sMassage.Text = SqlData2["smessage"].ToString();
-
-                                //old img path info 
-                                string[] Filename = new string[5];
-                                int j = 1;
-                                foreach (string fname in Directory.GetFileSystemEntries(Server.MapPath("/pic/StoreInfo/" + sid)))
-                                {
-                                    string path = fname.Replace(Server.MapPath(""), "~");
-                                    Filename[j] = path;
-                                    j++;
-                                }
-
-                                sidpath.Value = sid;
-                                picpath1.Value = Filename[1];
-                                picpath2.Value = Filename[2];
-                                picpath3.Value = Filename[3];
-                                picpath4.Value = Filename[4];
-
-                            }
+                            Spot.SelectedValue = SqlData2["stype"].ToString();
                         }
+                        StoreTB.Text = SqlData2["sname"].ToString();
+                        PhoneTB.Text = SqlData2["sphone"].ToString();
+                        oldAddressTB.Text = SqlData2["sregion"].ToString() + " " + SqlData2["saddress"].ToString();
+                        WebsiteTB.Text = SqlData2["swebsite"].ToString();
+                        sMassage.Text = SqlData2["smessage"].ToString();
+
+                        /*//old img path info 
+                        string[] Filename = new string[5];
+                        int j = 1;
+                        foreach (string fname in Directory.GetFileSystemEntries(Server.MapPath("/pic/StoreInfo/" + sid)))
+                        {
+                            string path = fname.Replace(Server.MapPath(""), "~");
+                            Filename[j] = path;
+                            j++;
+                        }
+
+                        sidpath.Value = sid;
+                        picpath1.Value = Filename[1];
+                        picpath2.Value = Filename[2];
+                        picpath3.Value = Filename[3];
+                        picpath4.Value = Filename[4];*/
                     }
                     SqlPTC.Close();
                 }
@@ -201,7 +199,7 @@ namespace pettravel
                 }
                 else
                 {
-                    newstore = false;
+                    
                     SqlCommand Store = new SqlCommand(@"insert into 
                 Storeinfo(Mid,sname,stype,sregion,saddress,sphone,swebsite,smessage) 
                 values(@mid,@StoreTB,@Stype,@RegionTB,@AddressTB,@PhoneTB,@WebsiteTB,@sMassage); Select SCOPE_IDENTITY() ", SqlPTC);

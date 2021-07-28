@@ -37,15 +37,6 @@ namespace pettravel
         {  //統一設定錯誤訊息
             Page.ClientScript.RegisterStartupScript(Page.GetType(), "MessageBox", "alert('  status : \\n  " + msgcode + "');", true);
         }
-        public string Picload(string picpath)// 7/23 elias  預計串格式管理清單
-        {//照格式新增允許類型 ex:SVG
-            string[] picformat = new string[] { "jpg","jpeg","png","gif","tiff" };
-            foreach (string x in picformat)
-                if (File.Exists(Server.MapPath(picpath + x))) 
-                    return (picpath + x);
-            return null;
-        }
-        //Img1spic1.ImageUrl = Picload("/pic/StoreInfo/" + sid1 + "/pic1.");
 
         public void RefreshStore(string SqlStoreinfoSearchcode)
         {   //刷新店家資訊,每次讀取不同頁數及篩選條件時呼叫
@@ -106,9 +97,7 @@ namespace pettravel
                     LkBtn1sname.Text = sname[exhibit_id1];
                     Lbl1stype.Text = stype[exhibit_id1];
                     sid1 = sid[exhibit_id1];
-
-                    Img1spic1.ImageUrl = Picload("/pic/StoreInfo/" + sid1 + "/pic1.");
-
+                    Img1spic1.ImageUrl = "pic/StoreInfo/" + sid1 + "/pic1.jpg";
                     Img1spic3.ImageUrl = "assets/img/icon/" + stype[exhibit_id1] + "-icon.png";
 
                     Lbl2sfeature1.Text = sfeature1[exhibit_id2];
@@ -117,9 +106,7 @@ namespace pettravel
                     LkBtn2sname.Text = sname[exhibit_id2];
                     Lbl2stype.Text = stype[exhibit_id2];
                     sid2 = sid[exhibit_id2];
-
-                    Img2spic1.ImageUrl = Picload("/pic/StoreInfo/" + sid2 + "/pic1."); 
-
+                    Img2spic1.ImageUrl = "pic/StoreInfo/" + sid2 + "/pic1.jpg";
                     Img2spic3.ImageUrl = "assets/img/icon/" + stype[exhibit_id2] + "-icon.png";
 
 
@@ -129,9 +116,7 @@ namespace pettravel
                     LkBtn3sname.Text = sname[exhibit_id3];
                     Lbl3stype.Text = stype[exhibit_id3];
                     sid3 = sid[exhibit_id3];
-
-                    Img3spic1.ImageUrl = Picload("/pic/StoreInfo/" + sid3 + "/pic1.");
-
+                    Img3spic1.ImageUrl = "pic/StoreInfo/" + sid3 + "/pic1.jpg";
                     Img3spic3.ImageUrl = "assets/img/icon/" + stype[exhibit_id3] + "-icon.png";
 
                     Lbl4sfeature1.Text = sfeature1[exhibit_id4];
@@ -140,9 +125,7 @@ namespace pettravel
                     LkBtn4sname.Text = sname[exhibit_id4];
                     Lbl4stype.Text = stype[exhibit_id4];
                     sid4 = sid[exhibit_id4];
-
-                    Img4spic1.ImageUrl = Picload("/pic/StoreInfo/" + sid4 + "/pic1.");
-
+                    Img4spic1.ImageUrl = "pic/StoreInfo/" + sid4 + "/pic1.jpg";
                     Img4spic3.ImageUrl = "assets/img/icon/" + stype[exhibit_id4] + "-icon.png";
 
                     Lbl5sfeature1.Text = sfeature1[exhibit_id5];
@@ -151,11 +134,8 @@ namespace pettravel
                     LkBtn5sname.Text = sname[exhibit_id5];
                     Lbl5stype.Text = stype[exhibit_id5];
                     sid5 = sid[exhibit_id5];
-
-                    Img5spic1.ImageUrl= Picload("/pic/StoreInfo/" + sid5 + "/pic1.");
-
+                    Img5spic1.ImageUrl = "pic/StoreInfo/" + sid5 + "/pic1.jpg";
                     Img5spic3.ImageUrl = "assets/img/icon/" + stype[exhibit_id5] + "-icon.png";
-
 
                     Lbl6sfeature1.Text = sfeature1[exhibit_id6];
                     Lbl6sfeature2.Text = sfeature2[exhibit_id6];
@@ -163,11 +143,9 @@ namespace pettravel
                     LkBtn6sname.Text = sname[exhibit_id6];
                     Lbl6stype.Text = stype[exhibit_id6];
                     sid6 = sid[exhibit_id6];
-
-                    Img6spic1.ImageUrl = Picload("/pic/StoreInfo/" + sid6 + "/pic1.");
-
+                    Img6spic1.ImageUrl = "pic/StoreInfo/" + sid6 + "/pic1.jpg";
                     Img6spic3.ImageUrl = "assets/img/icon/" + stype[exhibit_id6] + "-icon.png";
-
+                    
                 }
                 else
                 {
@@ -230,12 +208,33 @@ namespace pettravel
             LkBtnpagetotop.Visible = true;
             LkBtnpagetoend.Enabled = true;
             LkBtnpagetoend.Visible = true;
-            Img1spic1.ImageUrl = "assets / img / icon / restaurant - icon.png";
-            Img2spic1.ImageUrl = "assets / img / icon / restaurant - icon.png";
-            Img3spic1.ImageUrl = "assets / img / icon / restaurant - icon.png";
-            Img4spic1.ImageUrl = "assets / img / icon / restaurant - icon.png";
-            Img5spic1.ImageUrl = "assets / img / icon / restaurant - icon.png";
-            Img6spic1.ImageUrl = "assets / img / icon / restaurant - icon.png";
+            //店家瀏覽區塊初始化
+            Img1spic1.ImageUrl = "assets/img/gallery/properties1.png";
+            Img2spic1.ImageUrl = "assets/img/gallery/properties1.png";
+            Img3spic1.ImageUrl = "assets/img/gallery/properties1.png";
+            Img4spic1.ImageUrl = "assets/img/gallery/properties1.png";
+            Img5spic1.ImageUrl = "assets/img/gallery/properties1.png";
+            Img6spic1.ImageUrl = "assets/img/gallery/properties1.png";
+
+            Lbl1sfeature1.Text = "店家尚未進駐";
+            Lbl1sfeature2.Text = "敬請期待";
+            Lbl2sfeature1.Text = "店家尚未進駐";
+            Lbl2sfeature2.Text = "敬請期待";
+            Lbl3sfeature1.Text = "店家尚未進駐";
+            Lbl3sfeature2.Text = "敬請期待";
+            Lbl4sfeature1.Text = "店家尚未進駐";
+            Lbl4sfeature2.Text = "敬請期待";
+            Lbl5sfeature1.Text = "店家尚未進駐";
+            Lbl5sfeature2.Text = "敬請期待";
+            Lbl6sfeature1.Text = "店家尚未進駐";
+            Lbl6sfeature2.Text = "敬請期待";
+
+            Lbl1smessage.Text = "暫無店家資料";
+            Lbl2smessage.Text = "暫無店家資料";
+            Lbl3smessage.Text = "暫無店家資料";
+            Lbl4smessage.Text = "暫無店家資料";
+            Lbl5smessage.Text = "暫無店家資料";
+            Lbl6smessage.Text = "暫無店家資料";
 
 
             //頁碼靠前產生外觀變化
@@ -406,6 +405,7 @@ namespace pettravel
         public void Addfavorite(int storeid) 
         {
             SqlConnection SqlPTC = this.SqlPTC();
+
             //確認登入狀態
             if (Session["email"] == null)
             {
@@ -415,6 +415,7 @@ namespace pettravel
             {
                 //以登入信箱為基準讀取我的最愛店家內容
                 string newfsid;
+                
                 string SqlMemberSearchcode = "Select fsid From Member Where memail = '" + Session["email"].ToString() + "'";
 
                 SqlPTC.Open();
@@ -427,8 +428,8 @@ namespace pettravel
                     if (SqlData.HasRows)
                     {
                         if (SqlData.Read())
-                        {
-                            if (SqlData["fsid"].ToString() == null)
+                        {   //檢查該資料格是否為空字串或NULL
+                            if (SqlData["fsid"].ToString().Trim() == "" || SqlData["fsid"].ToString() == "&nbsp;")
                             {
                                 newfsid = storeid.ToString();
                             }

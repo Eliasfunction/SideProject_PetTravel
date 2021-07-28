@@ -136,7 +136,7 @@
                                         <ul id="navigation">
                                             <li><a href="index.aspx">首頁</a></li>
                                             <li><a href="listing.aspx">探索</a></li>
-                                            <li><a href="#">行程</a></li>
+                                            <!--<li><a href="#">行程</a></li>-->
                                             <li>
                                                 <asp:LinkButton ID="PersonalDataLB" runat="server"
                                                     OnClick="PersonalDataLB_Click">帳號管理</asp:LinkButton>

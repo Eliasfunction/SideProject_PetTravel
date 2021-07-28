@@ -65,14 +65,14 @@
                                         <ul id="navigation">
                                             <li><a href="index.aspx">首頁</a></li>
                                             <li><a href="listing.aspx">探索</a></li>
-                                            <li><a href="elements.aspx">行程</a>
-                                                <!--
+                                            <!--<li><a href="elements.aspx">行程</a>
+                                                
                                             <li><a href="blog.aspx">收藏店家</a></li>
                                             <li><a href="blog_details.aspx">店家資訊</a></li>
                                             <li><a href="elements.aspx">簡介</a></li>
                                             <li><a href="contact.aspx">查看地圖</a></li>
-                                            -->
-                                            </li>
+                                            
+                                            </li>-->
                                             <li>
                                                 <asp:LinkButton ID="PersonalDataLB" runat="server"
                                                     OnClick="PersonalDataLB_Click">帳號管理</asp:LinkButton>
