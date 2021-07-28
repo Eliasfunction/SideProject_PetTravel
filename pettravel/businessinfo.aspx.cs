@@ -94,7 +94,7 @@ namespace pettravel
         //*** Method end
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Session["email"] = "sushengyinsu@yahoo.com.tw";
+            Session["email"] = "Eliastest@gmail.com";
             if (Session["email"] == null)
                 PageMsg("請先登入", "login");
             try
