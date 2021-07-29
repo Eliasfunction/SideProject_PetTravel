@@ -143,50 +143,69 @@ label{
                                     <asp:ListItem Value="餐飲">餐飲</asp:ListItem>
                                     <asp:ListItem Value="景點">景點</asp:ListItem>
                                 </asp:DropDownList>
-                                <div class="single-input-fields">
+                                <div class="w20 single-input-fields">
                                     <label class="w4">店家名稱* </label>
                                     <asp:TextBox ID="StoreTB" runat="server" TextMode="SingleLine" class="w16 form-control" required="required"></asp:TextBox> 
+                                </div>
+                                <div class="w20 single-input-fields">
                                     <label class="w4">營業電話* </label>
                                     <asp:TextBox ID="PhoneTB" runat="server" TextMode="Phone" class="w16 form-control" required="required"></asp:TextBox>
-                                    <label class="w4">舊有地址</label>
-                                    <asp:TextBox ID="oldAddressTB" runat="server" TextMode="SingleLine"  class="w16 form-control" BackColor="#CCCCCC" ReadOnly="True"></asp:TextBox>
-                                    <label class="w4">地址確認*</label>
                                 </div>
-                                <div id="zipcode3">
-                                    <div class="w6 check-marks mb-15"  data-role="county" ></div>
-                                    <div class="w10 check-marks mb-15"  data-role="district"  ></div>  
+                                <div class="w20 single-input-fields"  ID="NowAddress" runat="server">
+                                    <label class="w4">目前地址</label>
+                                    <asp:TextBox ID="sregionTB" runat="server" TextMode="SingleLine"  class="w5 form-control" BackColor="#CCCCCC" ReadOnly="True"></asp:TextBox>
+                                    <asp:TextBox ID="oldAddressTB" runat="server" TextMode="SingleLine"  class="f7 form-control" BackColor="#CCCCCC" ReadOnly="True"></asp:TextBox>
+                                    <div class="w1"> <asp:CheckBox ID="UseoldAddress" runat="server" AutoPostBack="True" OnCheckedChanged="UseoldAddress_CheckedChanged" /></div>
+                                    <div class="w3">地址照舊</div>
                                 </div>
-
-                                <script>$("#zipcode3").twzipcode({
-                                        'countySel': '臺北市',
-                                        'css': ["form-control county", "form-control district"],
-                                        'zipcodeIntoDistrict': true
-                                    });</script>
-
-                                <div class="single-input-fields">
-                                    <p class="w4"></p> <!-- 村里路號 -->
-                                    <asp:TextBox ID="AddressTB" runat="server" TextMode="SingleLine"  class="w16 form-control" required="required"></asp:TextBox>
-
-                                    <label class="w4">店家網址 </label>
+                                <div class="w20 single-input-fields" ID="NewAddress" runat="server">
+                                    <label class="w4">新設地址</label>
+                                    <div id="zipcode3">
+                                        <div class="w6 check-marks mb-15"  data-role="county" ></div>
+                                        <div class="w10 check-marks mb-15"  data-role="district" ></div>
+                                    </div>
+                                    <script>$("#zipcode3").twzipcode({'countySel': '臺北市','css': ["form-control county", "form-control district"],'zipcodeIntoDistrict': true});</script>
+                                </div>
+                                <div class="w20 single-input-fields" ID="NewAddressStreet" runat="server">
+                                    <p class="w4"></p>
+                                    <asp:TextBox ID="AddressTB" runat="server" TextMode="SingleLine"  class="w16 form-control"></asp:TextBox>
+                                </div>
+                                <div class="w20 single-input-fields">
+                                    <label class="w4">店家網址</label>
                                     <asp:TextBox ID="WebsiteTB" runat="server" TextMode="SingleLine" class="w16 form-control"></asp:TextBox>
-                                    <label class="w4">店家介紹</label>
-                                    <asp:TextBox ID="sMassage" runat="server"  Rows="3" TextMode="MultiLine" class="w16 form-control stl"></asp:TextBox>
-                                    
-                                    <label class="w20">店家照片(每張照片不得超過4mb)</label>
-                                    <input id = "sidpath"  type = "hidden"  value = "null"  runat = server ClientIDMode = 'Static' >
-                                    <input id = "picpath1"  type = "hidden"  value = ""  runat = server ClientIDMode = 'Static' >
-                                    <input id = "picpath2"  type = "hidden"  value = ""  runat = server ClientIDMode = 'Static' >
-                                    <input id = "picpath3"  type = "hidden"  value = ""  runat = server ClientIDMode = 'Static' >
-                                    <input id = "picpath4"  type = "hidden"  value = ""  runat = server ClientIDMode = 'Static' >
-                                    <div id="LXXUploadPic" LXXCol="2" LXXRow="2" LXXWidth="100" LXXHeight="100" ></div>
-                                    <p class="w20"></p>
-                                    <div class="g-recaptcha w14" data-sitekey="6Lf1lqsbAAAAAEe2ptOrw7EriKV8KiotTzpAgb-T" required="required"></div>
-                                    
                                 </div>
+                                <div class="w20 single-input-fields">
+                                    <label class="w4">店家簡介</label>
+                                    <asp:TextBox ID="sMassage" runat="server"  Rows="3" TextMode="MultiLine" class="w16 form-control stl"></asp:TextBox>
+                                </div>
+                                <div class="w20 single-input-fields" ID="NowIMGshow" runat="server">
+                                    <label class="w16">現有照片(照片大小上限 4 MB)</label>
+                                    <div class="w1"> 
+                                        <asp:CheckBox ID="Uswoldimg" runat="server" AutoPostBack="True" OnCheckedChanged="Uswoldimg_CheckedChanged" />
+                                    </div>
+                                    <div class="w3">圖片照舊</div>
+                                    <table border="0">
+                                        <tbody>
+                                            <tr>
+                                                <th><asp:ImageButton ID="oldpic1ImageButton" runat="server"  style=" height: 120px;" BorderStyle="None" /></th>
+                                                <th><asp:ImageButton ID="oldpic2ImageButton" runat="server"  style=" height: 120px;" BorderStyle="None" /></th>
+                                            </tr>
+                                            <tr>
+                                                <th><asp:ImageButton ID="oldpic3ImageButton" runat="server"  style=" height: 120px;" BorderStyle="None" /></th>
+                                                <th><asp:ImageButton ID="oldpic4ImageButton" runat="server"  style=" height: 120px;" BorderStyle="None" /></th>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                 </div>
+                                <div class="w20 single-input-fields" ID="NewIMG" runat="server">
+                                    <label class="w20">上傳圖片(照片大小上限 4 MB)</label>
+                                    <div id="LXXUploadPic" LXXCol="2" LXXRow="2" LXXWidth="100" LXXHeight="100"></div>
+                                    <p class="w20"></p>
+                                 </div>
                                 <!-- form Footer -->
-                                <div class="f6  register-footer">
-                                    <asp:Button  ID="UpdateBT" runat="server" Text="確認更改" BackColor="#ec3472" Font-Bold="False" Font-Names="微軟正黑體" Font-Size="Large" ForeColor="White" Height="60px" Width="100%" OnClick="UpdateBT_Click" />
-                                    
+                                <div class="W20  register-footer">
+                                    <div class="g-recaptcha f14" data-sitekey="6Lf1lqsbAAAAAEe2ptOrw7EriKV8KiotTzpAgb-T"></div>
+                                    <asp:Button  ID="UpdateBT" class="f6" runat="server" Text="確認更改" BackColor="#ec3472" Font-Bold="False" Font-Names="微軟正黑體" Font-Size="Large" ForeColor="White" Height="60px" Width="100%" OnClick="UpdateBT_Click" />
                                 </div>
                                 <div class="footer-logo mb-25">
                                         <a href="index.aspx"><img src="assets/img/logo/logo2_footer.png" alt="" style="width:130px;height:130px;"></a>
