@@ -46,11 +46,9 @@ namespace pettravel
             HttpWebRequest req = (HttpWebRequest)WebRequest.Create
             (" https://www.google.com/recaptcha/api/siteverify?secret=6Lf1lqsbAAAAANIor_HPY3GjOvoF5ZHEYTNlRWzP&response=" + Response);
             try
-            {
-                //Google recaptcha Response
+            {//Google recaptcha Response
                 using (WebResponse wResponse = req.GetResponse())
                 {
-
                     using (StreamReader readStream = new StreamReader(wResponse.GetResponseStream()))
                     {
                         string jsonResponse = readStream.ReadToEnd();
@@ -58,7 +56,6 @@ namespace pettravel
                         Valid = Convert.ToBoolean(info["success"]);
                     }
                 }
-
                 return Valid;
             }
             catch (WebException ex)
@@ -68,7 +65,7 @@ namespace pettravel
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Session["email"] = "sushengyinsu@yahoo.com.tw";//本機測試用帳號
+            Session["email"] = "Eliastest2@gmail.com";//本機測試用帳號
             if (Session["email"] == null)
             {
                 PageMsg("請先登入", "login");
@@ -79,16 +76,13 @@ namespace pettravel
             {
                 SqlPTC.Open();
                 SqlDataReader SqlData = AutoUserinfo.ExecuteReader();
-                if (SqlData.HasRows)//資料列是否有值
+                if (SqlData.HasRows && SqlData.Read())//資料列是否有值
                 {
-                    if (SqlData.Read())//讀取值
-                    {
-                        mailTB.Text = Session["email"].ToString();
-                        NameTB.Text = SqlData["mname"].ToString();
-                        PhoneTB.Text = SqlData["mphone"].ToString(); ;
-                        AddressTB.Text = SqlData["maddress"].ToString(); ;
-                        oldpwhash = SqlData["mpassword"].ToString();
-                    }
+                    mailTB.Text = Session["email"].ToString();
+                    NameTB.Text = SqlData["mname"].ToString();
+                    PhoneTB.Text = SqlData["mphone"].ToString(); ;
+                    AddressTB.Text = SqlData["maddress"].ToString(); ;
+                    oldpwhash = SqlData["mpassword"].ToString();
                 }
                 SqlData.Close();
                 SqlPTC.Close();
@@ -103,54 +97,43 @@ namespace pettravel
 
         protected void UpdateBT_Click(object sender, EventArgs e)
         {
-            if (ValidatePass())
-            {
+            if (!ValidatePass())
+                PageMsg("驗證未通過", "personaldata");
 
-
-                if (Request.Form["NewPwdTB"].ToString() != Request.Form["ConfirmPwdTB"].ToString())
-                {
-                    ShowError.Text = "新密碼確認不正確";
-                }
-                else if (Request.Form["OldPwdTB"].ToString() == Request.Form["NewPwdTB"].ToString())
-                {
-                    ShowError.Text = "請確認新舊密碼是否正確 且不得為相同";
-                }
-                else
-                {
-                    string OldUserRegPwd = HMACSHA256(Request.Form["OldPwdTB"], "Keys");
-                    string NewUserRegPwd = HMACSHA256(Request.Form["NewPwdTB"], "Keys");
-                    if (oldpwhash != OldUserRegPwd)
-                        ShowError.Text = "原密碼輸入錯誤";
-                    else
-                    {
-
-                        string UpdateDataSQLCommand = @"UPDATE Member SET mname = @name, mpassword = @password, mphone = @phone, maddress = @address WHERE memail = @email";
-                        SqlCommand UpdateData = new SqlCommand(UpdateDataSQLCommand, SqlPTC);
-
-                        UpdateData.Parameters.Add("@name", SqlDbType.NVarChar).Value = Request.Form["NameTB"];
-                        UpdateData.Parameters.Add("@phone", SqlDbType.VarChar).Value = Request.Form["PhoneTB"];
-                        UpdateData.Parameters.Add("@address", SqlDbType.NVarChar).Value = Request.Form["AddressTB"];
-                        UpdateData.Parameters.Add("@email", SqlDbType.VarChar).Value = Session["email"];
-                        UpdateData.Parameters.Add("@password", SqlDbType.NVarChar).Value = NewUserRegPwd;
-                        try
-                        {
-                            SqlPTC.Open();
-                            UpdateData.ExecuteNonQuery();
-                            SqlPTC.Close();
-                            Session["name"] = Request.Form["NameTB"];
-                            PageMsg("修改成功", "index");
-                        }
-                        catch
-                        {
-                            Response.StatusCode = 404;
-                            PageMsg("系統連線失敗\\n請稍後在試\\n");
-                        }
-                    }
-                }
-            }
+            if (Request.Form["NewPwdTB"].ToString() != Request.Form["ConfirmPwdTB"].ToString())
+                ShowError.Text = "新密碼確認不正確";
+            else if (Request.Form["OldPwdTB"].ToString() == Request.Form["NewPwdTB"].ToString())
+                ShowError.Text = "請確認新舊密碼是否正確 且不得為相同";
             else
             {
-                PageMsg("驗證未通過", "personaldata");
+                string OldUserRegPwd = HMACSHA256(Request.Form["OldPwdTB"], "Keys");
+                string NewUserRegPwd = HMACSHA256(Request.Form["NewPwdTB"], "Keys");
+                if (oldpwhash != OldUserRegPwd)
+                    ShowError.Text = "原密碼輸入錯誤";
+                else
+                {
+                    string UpdateDataSQLCommand = @"UPDATE Member SET mname = @name, mpassword = @password, mphone = @phone, maddress = @address WHERE memail = @email";
+                    SqlCommand UpdateData = new SqlCommand(UpdateDataSQLCommand, SqlPTC);
+
+                    UpdateData.Parameters.Add("@name", SqlDbType.NVarChar).Value = Request.Form["NameTB"];
+                    UpdateData.Parameters.Add("@phone", SqlDbType.VarChar).Value = Request.Form["PhoneTB"];
+                    UpdateData.Parameters.Add("@address", SqlDbType.NVarChar).Value = Request.Form["AddressTB"];
+                    UpdateData.Parameters.Add("@email", SqlDbType.VarChar).Value = Session["email"];
+                    UpdateData.Parameters.Add("@password", SqlDbType.NVarChar).Value = NewUserRegPwd;
+                    try
+                    {
+                        SqlPTC.Open();
+                        UpdateData.ExecuteNonQuery();
+                        SqlPTC.Close();
+                        Session["name"] = Request.Form["NameTB"];
+                        PageMsg("修改成功", "index");
+                    }
+                    catch
+                    {
+                        Response.StatusCode = 404;
+                        PageMsg("系統連線失敗\\n請稍後在試\\n");
+                    }
+                }
             }
         }
     }

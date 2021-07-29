@@ -51,6 +51,24 @@ namespace pettravel
         protected global::System.Web.UI.WebControls.TextBox PhoneTB;
 
         /// <summary>
+        /// NowAddress 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl NowAddress;
+
+        /// <summary>
+        /// sregionTB 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox sregionTB;
+
+        /// <summary>
         /// oldAddressTB 控制項。
         /// </summary>
         /// <remarks>
@@ -58,6 +76,33 @@ namespace pettravel
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox oldAddressTB;
+
+        /// <summary>
+        /// UseoldAddress 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox UseoldAddress;
+
+        /// <summary>
+        /// NewAddress 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl NewAddress;
+
+        /// <summary>
+        /// NewAddressStreet 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl NewAddressStreet;
 
         /// <summary>
         /// AddressTB 控制項。
@@ -87,49 +132,67 @@ namespace pettravel
         protected global::System.Web.UI.WebControls.TextBox sMassage;
 
         /// <summary>
-        /// sidpath 控制項。
+        /// NowIMGshow 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden sidpath;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl NowIMGshow;
 
         /// <summary>
-        /// picpath1 控制項。
+        /// Uswoldimg 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden picpath1;
+        protected global::System.Web.UI.WebControls.CheckBox Uswoldimg;
 
         /// <summary>
-        /// picpath2 控制項。
+        /// oldpic1ImageButton 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden picpath2;
+        protected global::System.Web.UI.WebControls.ImageButton oldpic1ImageButton;
 
         /// <summary>
-        /// picpath3 控制項。
+        /// oldpic2ImageButton 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden picpath3;
+        protected global::System.Web.UI.WebControls.ImageButton oldpic2ImageButton;
 
         /// <summary>
-        /// picpath4 控制項。
+        /// oldpic3ImageButton 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden picpath4;
+        protected global::System.Web.UI.WebControls.ImageButton oldpic3ImageButton;
+
+        /// <summary>
+        /// oldpic4ImageButton 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton oldpic4ImageButton;
+
+        /// <summary>
+        /// NewIMG 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl NewIMG;
 
         /// <summary>
         /// UpdateBT 控制項。

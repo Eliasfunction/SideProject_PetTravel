@@ -159,18 +159,7 @@ namespace pettravel
             GridView1.DataBind();//資料與欄位合在一起
 
             
-            string[] Filename= new string[5];
-            int j = 1;
-            foreach (string fname in Directory.GetFileSystemEntries(Server.MapPath("/pic/StoreInfo/" + Convert.ToInt32(Request.QueryString["storeid"]))))
-            {
-                string path = fname.Replace(Server.MapPath(""),"~");
-                Filename[j] = path;
-                j++;
-            }
-            Image1.ImageUrl = Filename[1];
-            Image2.ImageUrl = Filename[2];
-            Image3.ImageUrl = Filename[3];
-            Image4.ImageUrl = Filename[4];
+
             
 
             //資料儲存
