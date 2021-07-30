@@ -87,6 +87,7 @@ namespace pettravel
             }
             catch (WebException ex)
             {
+                return false;
                 throw ex;
             }
         }
