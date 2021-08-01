@@ -69,6 +69,24 @@ namespace pettravel
         protected global::System.Web.UI.WebControls.TextBox OldPwdTB;
 
         /// <summary>
+        /// Pswd_area_show 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox Pswd_area_show;
+
+        /// <summary>
+        /// Pswd_change_area 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Pswd_change_area;
+
+        /// <summary>
         /// NewPwdTB 控制項。
         /// </summary>
         /// <remarks>

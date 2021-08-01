@@ -29,6 +29,48 @@
         <link rel="stylesheet" href="assets/css/style.css">
 
         <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+        <style>
+            .f1{float:left;margin-left:5px;margin-right:5px;width:calc(5% - 10px)}
+            .f2{float:left;margin-left:5px;margin-right:5px;width:calc(10% - 10px)}
+            .f3{float:left;margin-left:5px;margin-right:5px;width:calc(15% - 10px)}
+            .f4{float:left;margin-left:5px;margin-right:5px;width:calc(20% - 10px)}
+            .f5{float:left;margin-left:5px;margin-right:5px;width:calc(25% - 10px)}
+            .f6{float:left;margin-left:5px;margin-right:5px;width:calc(30% - 10px)}
+            .f7{float:left;margin-left:5px;margin-right:5px;width:calc(35% - 10px)}
+            .f8{float:left;margin-left:5px;margin-right:5px;width:calc(40% - 10px)}
+            .f9{float:left;margin-left:5px;margin-right:5px;width:calc(45% - 10px)}
+            .f10{float:left;margin-left:5px;margin-right:5px;width:calc(50% - 10px)}
+            .f11{float:left;margin-left:5px;margin-right:5px;width:calc(55% - 10px)}
+            .f12{float:left;margin-left:5px;margin-right:5px;width:calc(60% - 10px)}
+            .f13{float:left;margin-left:5px;margin-right:5px;width:calc(65% - 10px)}
+            .f14{float:left;margin-left:5px;margin-right:5px;width:calc(70% - 10px)}
+            .f15{float:left;margin-left:5px;margin-right:5px;width:calc(75% - 10px)}
+            .f17{float:left;margin-left:5px;margin-right:5px;width:calc(85% - 10px)}
+            .f18{float:left;margin-left:5px;margin-right:5px;width:calc(90% - 10px)}
+            .f19{float:left;margin-left:5px;margin-right:5px;width:calc(95% - 10px)}
+            .f20{float:left;margin-left:5px;margin-right:5px;width:calc(100% - 10px)}
+            .w1{float:left;width:5%;}
+            .w2{float:left;width:10%}
+            .w3{float:left;width:15%}
+            .w4{float:left;width:20%}
+            .w5{float:left;width:25%}
+            .w6{float:left;width:30%}
+            .w7{float:left;width:35%}
+            .w8{float:left;width:40%}
+            .w9{float:left;width:45%}
+            .w10{float:left;width:50%}
+            .w11{float:left;width:55%}
+            .w12{float:left;width:60%}
+            .w13{float:left;width:65%}
+            .w14{float:left;width:70%}
+            .w15{float:left;width:75%}
+            .w16{float:left;width:80%}
+            .w17{float:left;width:85%}
+            .w18{float:left;width:90%}
+            .w19{float:left;width:95%}
+            .w20{width:100%;overflow:auto}
+        </style>
     </head>
 
     <body>
@@ -49,32 +91,54 @@
                                     <!-- Single Input Fields -->
                                     <div class="input-box">
                                         <div class="single-input-fields">
-                                            <label>帳號</label>
-                                            <asp:TextBox ID="mailTB" runat="server" BackColor="#CCCCCC" ReadOnly="True"></asp:TextBox>
-                                            <label>姓名</label>
-                                            <asp:TextBox ID="NameTB" runat="server" BackColor="White"></asp:TextBox>
-                                            <label>電話/手機</label>
-                                            <asp:TextBox ID="PhoneTB" runat="server" TextMode="Phone"></asp:TextBox>
-                                            <label>住址</label>
-                                            <asp:TextBox ID="AddressTB" runat="server" TextMode="SingleLine"></asp:TextBox>
-                                            <label>原密碼</label>
-                                            <asp:TextBox ID="OldPwdTB" runat="server" TextMode="Password"></asp:TextBox>
-                                            <label>新密碼</label>
-                                            <asp:TextBox ID="NewPwdTB" runat="server" TextMode="Password"></asp:TextBox>
-                                            <label>確認新密碼</label>
-                                            <asp:TextBox ID="ConfirmPwdTB" runat="server" TextMode="Password"></asp:TextBox>
-                                            <label> </label>
-                                            <asp:Label ID="ShowError" runat="server" ForeColor="Red" Font-Size="X-Large"></asp:Label>
-                                            
+                                            <div class="w20">                                            
+                                                <label class="w8">帳號</label>
+                                                <asp:TextBox ID="mailTB" class="w12" runat="server" BackColor="#CCCCCC" ReadOnly="True"></asp:TextBox>
+                                            </div>
+                                            <div class="w20"> 
+                                                <label class="w8">姓名</label>
+                                                <asp:TextBox ID="NameTB" class="w12" runat="server" BackColor="White"></asp:TextBox>
+                                            </div>
+                                            <div class="w20"> 
+                                                <label class="w8">電話/手機</label>
+                                                <asp:TextBox ID="PhoneTB" class="w12" runat="server" TextMode="Phone"></asp:TextBox>
+                                            </div>
+                                            <div class="w20"> 
+                                                <label class="w8">住址</label>
+                                                <asp:TextBox ID="AddressTB" class="w12" runat="server" TextMode="SingleLine"></asp:TextBox>
+                                            </div>
+                                                <div class="w20"> 
+                                                    <label class="w8">密碼</label>
+                                                    <asp:TextBox ID="OldPwdTB" class="w12" runat="server" TextMode="Password"></asp:TextBox>
+                                                </div>
+                                            <div class="w20"> 
+                                                <p class="w8"></p>
+                                                <asp:CheckBox ID="Pswd_area_show" class="w1" runat="server" OnCheckedChanged="Pswd_area_show_CheckedChanged" AutoPostBack="True"/>
+                                                <div class="w6">更改密碼請按此</div>
+                                            </div>
+                                            <div ID="Pswd_change_area" runat="server" style="Display:None;">
+
+                                                <div class="w20"> 
+                                                    <label class="w8">新密碼</label>
+                                                    <asp:TextBox ID="NewPwdTB" class="w12" runat="server" TextMode="Password"></asp:TextBox>
+                                                </div>
+                                                <div class="w20"> 
+                                                    <label class="w8">確認新密碼</label>
+                                                    <asp:TextBox ID="ConfirmPwdTB" class="w12" runat="server" TextMode="Password"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                            <div class="w20"> 
+                                                <p class="w8"></p>
+                                                <asp:Label ID="ShowError" class="w12" runat="server" ForeColor="Red" Font-Size="X-Large"></asp:Label>
+                                            </div>
                                         </div>
                                     </div>
                                     <!-- form Footer -->
-                                    <div class="register-footer">
-                                    <div class="w14 g-recaptcha " data-sitekey="6Lf1lqsbAAAAAEe2ptOrw7EriKV8KiotTzpAgb-T" ></div>
-
+                                    <div class="register-footer" >
+                                        <div class="w8 g-recaptcha " data-sitekey="6Lf1lqsbAAAAAEe2ptOrw7EriKV8KiotTzpAgb-T" ></div>
                                         <asp:Button ID="UpdateBT" runat="server" Text="確認更改" BackColor="#ec3472"
                                             Font-Bold="False" Font-Names="微軟正黑體" Font-Size="X-Large" ForeColor="White"
-                                            Height="59px" Width="179px" OnClick="UpdateBT_Click" />
+                                            Height="59px" Width="179px" OnClick="UpdateBT_Click" Class="w6" />
                                     </div>
                                     <div class="footer-logo mb-25">
                                         <a href="index.aspx"><img src="assets/img/logo/logo2_footer.png" alt="" style="width:130px;height:130px;"></a>

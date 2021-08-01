@@ -39,13 +39,18 @@ namespace pettravel
         {   //檢查是不是圖片照舊
             if (Uswoldimg.Checked == true)
                 return;
-
             for (int i = 1; i < 5; i++)
             {
                 string PN = "pic" + i;
                 string Storage = "/pic/StoreInfo/" + sid;
                 string Storagepath = Storage + "/";
                 // pic/StoreInfo/位置 新建一個SID資料夾 /若是修改資料 則先抹除sid資料夾新建一個
+                HttpPostedFile StoreImg = Request.Files[PN];
+                string FileExtension = Path.GetExtension(Request.Files[PN].FileName);
+
+                if (FileExtension == "")
+                    PageMsg("請上傳照片", "businessinfo");
+
                 if (i == 1)
                 {
                     try
@@ -54,12 +59,11 @@ namespace pettravel
                             Directory.Delete(Server.MapPath(Storage), true);
                         Directory.CreateDirectory(Server.MapPath(Storage));
                     }
-                    catch { }
+                    catch(WebException ex) 
+                    {
+                        PageMsg("存取失敗" + ex.Message, "index");
+                    }
                 }
-                HttpPostedFile StoreImg = Request.Files[PN];
-                string FileExtension = Path.GetExtension(Request.Files[PN].FileName);
-
-                if (FileExtension == "") { PageMsg("請上傳照片", "businessinfo");}
                 StoreImg.SaveAs(Server.MapPath(Path.Combine(Storagepath, PN + FileExtension)));
             }
 
@@ -95,10 +99,7 @@ namespace pettravel
         //*** Method end
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            if (Session["email"] == null)//check login status
-                PageMsg("請先登入", "login");
-
+            Session["email"] = "Eliastest2@gmail.com";
             // use Session["email"] find StoreSid
             SqlCommand midsidcommand = new SqlCommand(@"select * from Member where memail=@email", SqlPTC);
             midsidcommand.Parameters.Add("@email", SqlDbType.NVarChar).Value = Session["email"];
@@ -114,6 +115,8 @@ namespace pettravel
 
             if (!IsPostBack)
             {
+                if (Session["email"] == null)//check login status
+                    PageMsg("請先登入", "login");
                 try
                 {    
                     if (sid != "")
