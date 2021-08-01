@@ -20,81 +20,15 @@ namespace pettravel
         //*** Method
         SqlConnection SqlPTC = new SqlConnection(System.Web.Configuration.WebConfigurationManager.ConnectionStrings["PetTravelConnectionString"].ConnectionString);
         /*RECaptcha
-        {
+        {   //test
             public  Key = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI";
             public  Secret = "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe";
+            //online
             html=6Lf1lqsbAAAAAEe2ptOrw7EriKV8KiotTzpAgb-T
             backend=6Lf1lqsbAAAAANIor_HPY3GjOvoF5ZHEYTNlRWzP
         }*/
 
-        public void PageMsg(string msgcode)
-        {  //統一設定錯誤訊息
-            Response.Write("<script>alert('status :\\n" + msgcode + "');</script>");
-        }
-        public void PageMsg(string msgcode, string href)
-        {  //統一設定錯誤訊息
-            Response.Write("<script>alert('status :\\n" + msgcode + "');location.href='"+href+"';</script>");
-        }
-        public void ImageUpload(bool Deleteold)
-        {   //檢查是不是圖片照舊
-            if (Uswoldimg.Checked == true)
-                return;
-            for (int i = 1; i < 5; i++)
-            {
-                string PN = "pic" + i;
-                string Storage = "/pic/StoreInfo/" + sid;
-                string Storagepath = Storage + "/";
-                // pic/StoreInfo/位置 新建一個SID資料夾 /若是修改資料 則先抹除sid資料夾新建一個
-                HttpPostedFile StoreImg = Request.Files[PN];
-                string FileExtension = Path.GetExtension(Request.Files[PN].FileName);
 
-                if (FileExtension == "")
-                    PageMsg("請上傳照片", "businessinfo");
-
-                if (i == 1)
-                {
-                    try
-                    {
-                        if (!Deleteold)
-                            Directory.Delete(Server.MapPath(Storage), true);
-                        Directory.CreateDirectory(Server.MapPath(Storage));
-                    }
-                    catch(WebException ex) 
-                    {
-                        PageMsg("存取失敗" + ex.Message, "index");
-                    }
-                }
-                StoreImg.SaveAs(Server.MapPath(Path.Combine(Storagepath, PN + FileExtension)));
-            }
-
-        }
-        public bool ValidatePass()
-        {
-            string Response = Request["g-recaptcha-response"];//Getting Response String Append to Post Method
-            bool Valid = false;
-            //Request to Google Server
-            HttpWebRequest req = (HttpWebRequest)WebRequest.Create
-            (" https://www.google.com/recaptcha/api/siteverify?secret=6Lf1lqsbAAAAANIor_HPY3GjOvoF5ZHEYTNlRWzP&response=" + Response);
-            try
-            {
-                //Google recaptcha Response
-                using (WebResponse wResponse = req.GetResponse())
-                { 
-                    using (StreamReader readStream = new StreamReader(wResponse.GetResponseStream()))
-                    {
-                        string jsonResponse = readStream.ReadToEnd();
-                        JObject info = Newtonsoft.Json.JsonConvert.DeserializeObject<JObject>(jsonResponse);
-                        Valid = Convert.ToBoolean(info["success"]);
-                    }
-                }
-                return Valid;
-            }
-            catch (WebException ex)
-            {
-                return false;
-                throw ex;
-            }
-        }
 
         //*** Method end
         protected void Page_Load(object sender, EventArgs e)
@@ -195,7 +129,7 @@ namespace pettravel
                 //營業電話
                 UpdateData.Parameters.Add("@PhoneTB", SqlDbType.VarChar).Value = Request.Form["PhoneTB"];
                 //地址 ture=用舊地址
-                if (UseoldAddress.Checked == true)
+                if (UseoldAddress.Checked == false)
                 {
                     UpdateData.Parameters.Add("@RegionTB", SqlDbType.NVarChar).Value = Request.Form["sregionTB"].ToString();
                     UpdateData.Parameters.Add("@AddressTB", SqlDbType.NVarChar).Value = Request.Form["oldAddressTB"].ToString();
@@ -260,7 +194,7 @@ namespace pettravel
 
         protected void UseoldAddress_CheckedChanged(object sender, EventArgs e)
         {
-            if(UseoldAddress.Checked==true)
+            if(UseoldAddress.Checked==false)
             {
                 NewAddress.Style["Display"] = "None";
                 NewAddressStreet.Style["Display"] = "None";
@@ -274,10 +208,87 @@ namespace pettravel
 
         protected void Uswoldimg_CheckedChanged(object sender, EventArgs e)
         {
-            if (Uswoldimg.Checked == true)
+            if (Uswoldimg.Checked == false)
+            {
                 NewIMG.Style["Display"] = "None";
+                NowIMGshow.Style["Display"] = "Block";
+            }
             else
+            {
                 NewIMG.Style["Display"] = "Block";
+                NowIMGshow.Style["Display"] = "None";
+            }
+        }
+
+
+        //methods
+        public void PageMsg(string msgcode)
+        {  //統一設定錯誤訊息
+            Response.Write("<script>alert('status :\\n" + msgcode + "');</script>");
+        }
+        public void PageMsg(string msgcode, string href)
+        {  //統一設定錯誤訊息
+            Response.Write("<script>alert('status :\\n" + msgcode + "');location.href='" + href + "';</script>");
+        }
+        public void ImageUpload(bool Deleteold)
+        {   //檢查是不是圖片照舊
+            if (Uswoldimg.Checked == false)
+                return;
+            for (int i = 1; i < 5; i++)
+            {
+                string PN = "pic" + i;
+                string Storage = "/pic/StoreInfo/" + sid;
+                string Storagepath = Storage + "/";
+                // pic/StoreInfo/位置 新建一個SID資料夾 /若是修改資料 則先抹除sid資料夾新建一個
+                HttpPostedFile StoreImg = Request.Files[PN];
+                string FileExtension = Path.GetExtension(Request.Files[PN].FileName);
+
+                if (FileExtension == "")
+                    PageMsg("請上傳照片", "businessinfo");
+
+                if (i == 1)
+                {
+                    try
+                    {
+                        if (!Deleteold)
+                            Directory.Delete(Server.MapPath(Storage), true);
+                        Directory.CreateDirectory(Server.MapPath(Storage));
+                    }
+                    catch (WebException ex)
+                    {
+                        PageMsg("存取失敗" + ex.Message, "index");
+                    }
+                }
+                StoreImg.SaveAs(Server.MapPath(Path.Combine(Storagepath, PN + FileExtension)));
+            }
+
+        }
+        public bool ValidatePass()
+        {
+            string Response = Request["g-recaptcha-response"];//Getting Response String Append to Post Method
+            bool Valid = false;
+            //Request to Google Server
+            HttpWebRequest req = (HttpWebRequest)WebRequest.Create
+            (" https://www.google.com/recaptcha/api/siteverify?secret=6Lf1lqsbAAAAANIor_HPY3GjOvoF5ZHEYTNlRWzP&response=" + Response);
+            try
+            {
+                //Google recaptcha Response
+                using (WebResponse wResponse = req.GetResponse())
+                {
+                    using (StreamReader readStream = new StreamReader(wResponse.GetResponseStream()))
+                    {
+                        string jsonResponse = readStream.ReadToEnd();
+                        JObject info = Newtonsoft.Json.JsonConvert.DeserializeObject<JObject>(jsonResponse);
+                        Valid = Convert.ToBoolean(info["success"]);
+                    }
+                }
+                return Valid;
+            }
+            catch (WebException ex)
+            {
+                return false;
+                throw ex;
+            }
         }
     }
 }

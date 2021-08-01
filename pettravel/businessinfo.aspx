@@ -34,83 +34,62 @@
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
     <!--20 等分表單網格系統-->
-<style>
-.f1{float:left;margin-left:5px;margin-right:5px;width:calc(5% - 10px)}
-.f2{float:left;margin-left:5px;margin-right:5px;width:calc(10% - 10px)}
-.f3{float:left;margin-left:5px;margin-right:5px;width:calc(15% - 10px)}
-.f4{float:left;margin-left:5px;margin-right:5px;width:calc(20% - 10px)}
-.f5{float:left;margin-left:5px;margin-right:5px;width:calc(25% - 10px)}
-.f6{float:left;margin-left:5px;margin-right:5px;width:calc(30% - 10px)}
-.f7{float:left;margin-left:5px;margin-right:5px;width:calc(35% - 10px)}
-.f8{float:left;margin-left:5px;margin-right:5px;width:calc(40% - 10px)}
-.f9{float:left;margin-left:5px;margin-right:5px;width:calc(45% - 10px)}
-.f10{float:left;margin-left:5px;margin-right:5px;width:calc(50% - 10px)}
-.f11{float:left;margin-left:5px;margin-right:5px;width:calc(55% - 10px)}
-.f12{float:left;margin-left:5px;margin-right:5px;width:calc(60% - 10px)}
-.f13{float:left;margin-left:5px;margin-right:5px;width:calc(65% - 10px)}
-.f14{float:left;margin-left:5px;margin-right:5px;width:calc(70% - 10px)}
-.f15{float:left;margin-left:5px;margin-right:5px;width:calc(75% - 10px)}
-.f16{float:left;margin-left:5px;margin-right:5px;width:calc(80% - 10px)}
-.f17{float:left;margin-left:5px;margin-right:5px;width:calc(85% - 10px)}
-.f18{float:left;margin-left:5px;margin-right:5px;width:calc(90% - 10px)}
-.f19{float:left;margin-left:5px;margin-right:5px;width:calc(95% - 10px)}
-.f20{float:left;margin-left:5px;margin-right:5px;width:calc(100% - 10px)}
-.w1{float:left;width:5%}
-.w2{float:left;width:10%}
-.w3{float:left;width:15%}
-.w4{float:left;width:20%}
-.w5{float:left;width:25%}
-.w6{float:left;width:30%}
-.w7{float:left;width:35%}
-.w8{float:left;width:40%}
-.w9{float:left;width:45%}
-.w10{float:left;width:50%}
-.w11{float:left;width:55%}
-.w12{float:left;width:60%}
-.w13{float:left;width:65%}
-.w14{float:left;width:70%}
-.w15{float:left;width:75%}
-.w16{float:left;width:80%}
-.w17{float:left;width:85%}
-.w18{float:left;width:90%}
-.w19{float:left;width:95%}
-.w20{width:100%;overflow:auto}
-.l1{margin-left:calc(5% + 5px);margin-right:5px}
-.l2{margin-left:calc(10% + 5px);margin-right:5px}
-.l3{margin-left:calc(15% + 5px);margin-right:5px}
-.l4{margin-left:calc(20% + 5px);margin-right:5px}
-.l5{margin-left:calc(25% + 5px);margin-right:5px}
-.l6{margin-left:calc(30% + 5px);margin-right:5px}
-.l7{margin-left:calc(35% + 5px);margin-right:5px}
-.l8{margin-left:calc(40% + 5px);margin-right:5px}
-.l9{margin-left:calc(45% + 5px);margin-right:5px}
-.l10{margin-left:calc(50% + 5px);margin-right:5px}
-.l11{margin-left:calc(55% + 5px);margin-right:5px}
-.l12{margin-left:calc(60% + 5px);margin-right:5px}
-.l13{margin-left:calc(65% + 5px);margin-right:5px}
-.l14{margin-left:calc(70% + 5px);margin-right:5px}
-.l15{margin-left:calc(75% + 5px);margin-right:5px}
-.l16{margin-left:calc(80 + 5px);margin-right:5px}
-.l17{margin-left:calc(85% + 5px);margin-right:5px}
-.l18{margin-left:calc(90% + 5px);margin-right:5px}
-.l19{margin-left:calc(95% + 5px);margin-right:5px}
-    .stl {
-        resize: none;
-    }
-.county {
-    background-color: #ffffff;
-    color: #ff0000;
-    font-weight:bold;
-}
-.district {
-    background-color: #ffffff;
-    color: #ff0000;
-    font-weight:bold;
-}
-label{ 
-    line-height:25pt; 
-
-} 
+    <style>
+        .f1{float:left;margin-left:5px;margin-right:5px;width:calc(5% - 10px)}
+        .f2{float:left;margin-left:5px;margin-right:5px;width:calc(10% - 10px)}
+        .f3{float:left;margin-left:5px;margin-right:5px;width:calc(15% - 10px)}
+        .f4{float:left;margin-left:5px;margin-right:5px;width:calc(20% - 10px)}
+        .f5{float:left;margin-left:5px;margin-right:5px;width:calc(25% - 10px)}
+        .f6{float:left;margin-left:5px;margin-right:5px;width:calc(30% - 10px)}
+        .f7{float:left;margin-left:5px;margin-right:5px;width:calc(35% - 10px)}
+        .f8{float:left;margin-left:5px;margin-right:5px;width:calc(40% - 10px)}
+        .f9{float:left;margin-left:5px;margin-right:5px;width:calc(45% - 10px)}
+        .f10{float:left;margin-left:5px;margin-right:5px;width:calc(50% - 10px)}
+        .f11{float:left;margin-left:5px;margin-right:5px;width:calc(55% - 10px)}
+        .f12{float:left;margin-left:5px;margin-right:5px;width:calc(60% - 10px)}
+        .f13{float:left;margin-left:5px;margin-right:5px;width:calc(65% - 10px)}
+        .f14{float:left;margin-left:5px;margin-right:5px;width:calc(70% - 10px)}
+        .f15{float:left;margin-left:5px;margin-right:5px;width:calc(75% - 10px)}
+        .f17{float:left;margin-left:5px;margin-right:5px;width:calc(85% - 10px)}
+        .f18{float:left;margin-left:5px;margin-right:5px;width:calc(90% - 10px)}
+        .f19{float:left;margin-left:5px;margin-right:5px;width:calc(95% - 10px)}
+        .f20{float:left;margin-left:5px;margin-right:5px;width:calc(100% - 10px)}
+        .w1{float:left;width:5%;}
+        .w2{float:left;width:10%}
+        .w3{float:left;width:15%}
+        .w4{float:left;width:20%}
+        .w5{float:left;width:25%}
+        .w6{float:left;width:30%}
+        .w7{float:left;width:35%}
+        .w8{float:left;width:40%}
+        .w9{float:left;width:45%}
+        .w10{float:left;width:50%}
+        .w11{float:left;width:55%}
+        .w12{float:left;width:60%}
+        .w13{float:left;width:65%}
+        .w14{float:left;width:70%}
+        .w15{float:left;width:75%}
+        .w16{float:left;width:80%}
+        .w17{float:left;width:85%}
+        .w18{float:left;width:90%}
+        .w19{float:left;width:95%}
+        .w20{width:100%;overflow:auto}
+        .stl {
+            resize: none;
+        }
+        .county {
+            background-color: #ffffff;
+            color: #ff0000;
+            font-weight: bold;
+        }
+        .district {
+            background-color: #ffffff;
+            color: #ff0000;
+            font-weight: bold;
+        }
+        label {
+            line-height: 25pt;
+        }
 </style>
 <!-- Designed by WFU BLOG -->
 
@@ -153,12 +132,13 @@ label{
                                 </div>
                                 <div class="w20 single-input-fields"  ID="NowAddress" runat="server">
                                     <label class="w4">目前地址</label>
-                                    <asp:TextBox ID="sregionTB" runat="server" TextMode="SingleLine"  class="w5 form-control" BackColor="#CCCCCC" ReadOnly="True"></asp:TextBox>
-                                    <asp:TextBox ID="oldAddressTB" runat="server" TextMode="SingleLine"  class="f7 form-control" BackColor="#CCCCCC" ReadOnly="True"></asp:TextBox>
+                                    <asp:TextBox ID="sregionTB" runat="server" TextMode="SingleLine"  class="w6 form-control" BackColor="#CCCCCC" ReadOnly="True"></asp:TextBox>
+                                    <asp:TextBox ID="oldAddressTB" runat="server" TextMode="SingleLine"  class="f10 form-control" BackColor="#CCCCCC" ReadOnly="True"></asp:TextBox>
+                                    <p class="w4"></p>
                                     <div class="w1"> <asp:CheckBox ID="UseoldAddress" runat="server" AutoPostBack="True" OnCheckedChanged="UseoldAddress_CheckedChanged" /></div>
-                                    <div class="w3">地址照舊</div>
+                                    <div class="w4">按此更新地址</div>
                                 </div>
-                                <div class="w20 single-input-fields" ID="NewAddress" runat="server">
+                                <div class="w20 single-input-fields" ID="NewAddress" runat="server" style="Display:None;">
                                     <label class="w4">新設地址</label>
                                     <div id="zipcode3">
                                         <div class="w6 check-marks mb-15"  data-role="county" ></div>
@@ -166,7 +146,7 @@ label{
                                     </div>
                                     <script>$("#zipcode3").twzipcode({'countySel': '臺北市','css': ["form-control county", "form-control district"],'zipcodeIntoDistrict': true});</script>
                                 </div>
-                                <div class="w20 single-input-fields" ID="NewAddressStreet" runat="server">
+                                <div class="w20 single-input-fields" ID="NewAddressStreet" runat="server" style="Display:None;">
                                     <p class="w4"></p>
                                     <asp:TextBox ID="AddressTB" runat="server" TextMode="SingleLine"  class="w16 form-control"></asp:TextBox>
                                 </div>
@@ -177,13 +157,10 @@ label{
                                 <div class="w20 single-input-fields">
                                     <label class="w4">店家簡介</label>
                                     <asp:TextBox ID="sMassage" runat="server"  Rows="3" TextMode="MultiLine" class="w16 form-control stl"></asp:TextBox>
+                                    <p class="w20"></p>
                                 </div>
-                                <div class="w20 single-input-fields" ID="NowIMGshow" runat="server">
-                                    <label class="w16">現有照片(照片大小上限 4 MB)</label>
-                                    <div class="w1"> 
-                                        <asp:CheckBox ID="Uswoldimg" runat="server" AutoPostBack="True" OnCheckedChanged="Uswoldimg_CheckedChanged" />
-                                    </div>
-                                    <div class="w3">圖片照舊</div>
+                                <div class="w20 single-input-fields" ID="NowIMGshow" runat="server" >
+                                    <label class="w14">現有照片</label>
                                     <table border="0">
                                         <tbody>
                                             <tr>
@@ -197,13 +174,22 @@ label{
                                         </tbody>
                                     </table>
                                  </div>
-                                <div class="w20 single-input-fields" ID="NewIMG" runat="server">
+                                <div class="w20 single-input-fields">
+                                    
+                                    <div class="w1"> 
+                                        <asp:CheckBox ID="Uswoldimg" runat="server" AutoPostBack="True" OnCheckedChanged="Uswoldimg_CheckedChanged" />
+                                    </div>
+                                        <div class="w5">按此上傳新圖片</div>
+                                </div>
+                                <div class="w20 single-input-fields" ID="NewIMG" runat="server" style="Display:None;">
                                     <label class="w20">上傳圖片(照片大小上限 4 MB)</label>
-                                    <div id="LXXUploadPic" LXXCol="2" LXXRow="2" LXXWidth="100" LXXHeight="100"></div>
-                                    <p class="w20"></p>
+                                    <div id="LXXUploadPic" LXXCol="2" LXXRow="2" LXXWidth="100%" LXXHeight="150%"></div>
+
                                  </div>
                                 <!-- form Footer -->
+                                <p class="w20"></p>
                                 <div class="W20  register-footer">
+
                                     <div class="g-recaptcha f14" data-sitekey="6Lf1lqsbAAAAAEe2ptOrw7EriKV8KiotTzpAgb-T"></div>
                                     <asp:Button  ID="UpdateBT" class="f6" runat="server" Text="確認更改" BackColor="#ec3472" Font-Bold="False" Font-Names="微軟正黑體" Font-Size="Large" ForeColor="White" Height="60px" Width="100%" OnClick="UpdateBT_Click" />
                                 </div>
