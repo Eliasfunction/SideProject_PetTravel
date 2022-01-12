@@ -111,9 +111,9 @@
                                             <div class="row">
                                                 <div class="col-lg-12 col-md-6 mb-15">
                                                     <div class="select-itms">
-                                                        <label for="bday">啟程日:</label>
+                                                        <label for="bday">&emsp;啟程日:</label>
                                                         <input id="sday" name="sday" type="date">
-                                                        <label for="bday">回程日:</label>
+                                                        <label for="bday">&emsp;回程日:</label>
                                                         <input id="rday" name="rday" type="date">
                                                         <input type="number" name="pnum" placeholder="請輸入人數" min="1">
                                                     </div>

@@ -49,8 +49,8 @@ namespace pettravel
             if (!ValidatePass())
                 PageMsg("驗證未通過", "register");
 
-            if (AccountPass == true)
-                PageMsg("帳戶名稱不可用", "register"); 
+            //if (AccountPass == true)
+            //    PageMsg("帳戶名稱不可用", "register"); 
 
             //存入新使用者註冊資料
             string sql2 = @"insert into Member(mname,memail,mpassword) values(@name,@email,@passwd)";
@@ -71,10 +71,11 @@ namespace pettravel
             SqlDataReader rd = command.ExecuteReader();
             if (rd.HasRows && rd.Read())
             {
-                string html = "https://localhost:44307//login?newid=" + rd["mnewid"];//本機測試用
-                //string html = "https://pettravel20210625105216.azurewebsites.net/login?newid=" + rd["mnewid"];//雲端用
+            
+                string html = "https://localhost:44307//login?newid=" + rd["mid"];//本機測試用
+                //string html = "https://pettravel20210625105216.azurewebsites.net/login?newid=" + rd["mid"];//雲端用
                 string body = "<h2 style='color:Pink;'>  歡迎您註冊毛起來玩~!!!</h2><br><p style='color:aqua;'>請點擊<a href='" + html + "'>這裡</a>進行您的帳號驗證，我們將為您導回登入頁就可以進行登入，謝謝您使用毛起來玩，愛你哦~~~</p>";
-                SendMailByGmail(Request.Form["email"], "驗證信箱", body);
+                //SendMailByGmail(Request.Form["email"], "驗證信箱", body);
                 PageMsg("請去信箱進行驗證，再進行登入", "index");
             }
             SqlPTC.Close();
